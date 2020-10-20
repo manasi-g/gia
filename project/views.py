@@ -58,8 +58,7 @@ def signup(request):
         if password != conf_pass:
             return render(request, 'task2part2temp/signup.html', {'msg': ["Passwords Don't match"]})
         try:
-            ouruser = User.objects.create_user(username=username, first_name=firstname, last_name=lastname, email=email,
-                                               password=password)
+            ouruser = User.objects.create_user(username=username, first_name=firstname, last_name=lastname, email=email, password=password)
             newuser = Register(user=ouruser, phone=phone, level=level, language=language)
             ouruser.save()
             newuser.save()
